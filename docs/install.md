@@ -4,7 +4,7 @@ sidebar_position: 100
 
 # Install
 
-lintnet is a single binary written in [Go](https://go.dev/). So you only need to install an execurable file into `$PATH`.
+lintnet is a single binary written in [Go](https://go.dev/). So you only need to install an executable file into `$PATH`.
 
 1. [Homebrew](https://brew.sh/)
 
