@@ -1,0 +1,84 @@
+---
+sidebar_position: 400
+---
+
+# Configuration file
+
+lintnet reads a configuration file `^\.?lintnet\.ya?ml$` on the current directory.
+You can also specify the configuration file path by the command line option `--config (-c)` and the environment variable `LINTNET_CONFIG`.
+
+```sh
+lintnet -c foo.yaml lint
+```
+
+e.g.
+
+```yaml
+error_level: info
+modules:
+  - id: toml
+    source: github_content>lintnet/lintnet-example//toml.jsonnet#v0.1.0
+  - id: lintnet/lintnet-example-2
+    source: github_content>lintnet/lintnet-example-2#v0.1.0
+  - id: lintnet/lintnet-example-3
+    source: github_archive>lintnet/lintnet-example-3#v0.1.0
+  - id: yaml
+    source: http>https://example.com/v0.1.0/yaml.jsonnet
+data_transformation:
+  - id: foo
+    type: jsonnet
+    file: transform.jsonnet
+outputs:
+  - type: stdout # stdout, stderr, file, github issue
+    renderer: jsonnet
+    template: foo.jsonnet
+  - type: file
+    renderer: text/template
+    path: foo.md
+    template: foo.tmpl
+targets:
+  - lint_files:
+      search_type: equal
+      paths:
+        - path: lintnet/csv.jsonnet
+      # imports:
+      #   - module: lintnet/lintnet-example-2
+      #     path: util.libsonnet
+      #     import: utils.libsonnet # optional
+    data_files:
+      search_type: equal
+      paths:
+        - path: examples/hello.csv
+  # - lint_files:
+  #     module: toml
+  #   data_files:
+  #     search_type: glob
+  #     paths:
+  #       - path: "*.toml"
+  # - lint_files:
+  #     module: lintnet/lintnet-example-2
+  #     search_type: equal
+  #     paths:
+  #       - path: actions.jsonnet
+  #   data_files:
+  #     search_type: glob
+  #     paths:
+  #       - path: .github/workflows/*.yml
+  #       - path: .github/workflows/*.yaml
+  #       - path: .github/workflows/fooyaml
+  #         exclude: true
+  # - lint_files:
+  #     module: lintnet/lintnet-example-3
+  #     paths:
+  #       - path: lintnet/json.jsonnet
+  #   data_files:
+  #     search_type: glob
+  #     paths:
+  #       - path: "*/*.json"
+  # - lint_files:
+  #     module: yaml
+  #   data_files:
+  #     search_type: glob
+  #     paths:
+  #       - path: "*/*.yaml"
+```
