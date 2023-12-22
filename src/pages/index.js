@@ -32,8 +32,8 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`lintnet - Secure, Powerful, Reusable linter powered by Jsonnet`}
+      description="lintnet is a command line tool that lints files such as JSON and YAML by Jsonnet.<head />">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
