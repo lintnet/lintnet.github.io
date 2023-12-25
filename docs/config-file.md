@@ -32,7 +32,7 @@ function(param) {
         'examples/lint/filename.jsonnet',
       ],
       modules: [
-        'github.com/lintnet/lintnet/examples/lint/csv.jsonnet@v0.2.0',
+        'github.com/suzuki-shunsuke/example-lintnet-modules/newline.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2',
       ],
     },
   ],
