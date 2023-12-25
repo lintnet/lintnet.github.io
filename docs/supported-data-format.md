@@ -11,6 +11,7 @@ We're considering supporting additional file formats. [#37](https://github.com/l
 format | file extensions | parser
 --- | --- | ---
 CSV | `.csv` | [encoding/csv](https://pkg.go.dev/encoding/csv#Reader)
+HCL 2 | `.hcl` | [tmccombs/hcl2json](https://pkg.go.dev/github.com/tmccombs/hcl2json/convert)
 JSON | `.json` | [encoding/json](https://pkg.go.dev/encoding/json#Decoder)
 TOML | `.toml` | [github.com/BurntSushi/toml](https://godocs.io/github.com/BurntSushi/toml#Decoder)
 TSV | `.tsv` | [encoding/csv](https://pkg.go.dev/encoding/csv#Reader)
