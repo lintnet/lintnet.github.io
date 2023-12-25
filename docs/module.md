@@ -17,7 +17,7 @@ There are two types of modules.
 
 Lint rule module is same with the normal lint rules.
 
-You can use Lint rule modules by specifying them in configuration files.
+You can use Lint rule modules by specifing them in configuration files.
 
 ```jsonnet
 function(param) {
@@ -61,6 +61,12 @@ github.com/lintnet/lintnet/examples/lint/csv.jsonnet@v0.2.0
 `ref` must be either a GitHub tag or a full commit hash.
 You must not use branch names as `ref` because even if branches are updated lintnet doesn't update installed modules.
 :::
+
+## Update modules by Renovate
+
+You can update modules by [Renovate](https://docs.renovatebot.com/) using our [Renovate Preset](https://docs.renovatebot.com/config-presets/).
+
+https://github.com/lintnet/renovate-config
 
 ## Where to install modules
 
