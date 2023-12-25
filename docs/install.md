@@ -15,7 +15,7 @@ brew install lintnet/lintnet/lintnet
 2. [Scoop](https://scoop.sh/)
 
 ```sh
-scoop bucket add suzuki-shunsuke https://github.com/suzuki-shunsuke/scoop-bucket
+scoop bucket add lintnet https://github.com/lintnet/scoop-bucket
 scoop install lintnet
 ```
 

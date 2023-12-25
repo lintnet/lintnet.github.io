@@ -15,7 +15,7 @@ Please don't use this tool yet.
 
 ## Features
 
-- Lint any configuration files ([Supported formats](#supported-file-format))
+- Lint various types of configuration files ([Supported formats](#supported-file-format))
 - Powerful. You can lint configuration files flexibly by Jsonnet. And lintnet extends Jsonnet by native functions
 - Secure. Jsonnet can't access filesystem and network so it's secure compared with common programming languages such as JavaScript
 - Cross Platform. lintnet works on Linux, macOS, and Windows. And it works on both amd64 and arm64
@@ -33,15 +33,6 @@ Please don't use this tool yet.
   - You can utilize the knowledge for not only this tool but also other projects
 - Secure
   - Jsonnet can't access file systems and networks and can't execute external commands
-
-## How to use
-
-1. Write lint rules with Jsonnet
-1. Run the command `lintnet lint`
-
-```sh
-lintnet lint [<file path to be validated> ...]
-```
 
 ## Example
 
