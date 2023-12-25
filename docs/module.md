@@ -24,7 +24,7 @@ function(param) {
   targets: [
     {
       modules: [ // Lint rule modules
-        'github.com/lintnet/lintnet/examples/lint/csv.jsonnet@v0.2.0',
+        'github.com/suzuki-shunsuke/example-lintnet-modules/hello.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2',
       ],
       data_files: [
         'examples/data/hello.csv',
@@ -40,7 +40,7 @@ You can share variables and functions as Imported modules.
 Imported modules are imported by Jsonnet's `import` statement.
 
 ```jsonnet
-local hello = 'github.com/lintnet/lintnet/examples/lint/csv.jsonnet@v0.2.0';
+local hello = 'github.com/suzuki-shunsuke/example-lintnet-modules/hello.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2';
 ```
 
 ## Module path format
@@ -48,19 +48,14 @@ local hello = 'github.com/lintnet/lintnet/examples/lint/csv.jsonnet@v0.2.0';
 Now only github.com is supported as the host.
 
 ```
-github.com/${repository_owner}/${repository_name}/${file_path}@${ref}
+github.com/${repository_owner}/${repository_name}/${file_path}@${full_commit_hash}[:${tag}]
 ```
 
 e.g.
 
 ```
-github.com/lintnet/lintnet/examples/lint/csv.jsonnet@v0.2.0
+github.com/suzuki-shunsuke/example-lintnet-modules/hello.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2
 ```
-
-:::caution
-`ref` must be either a GitHub tag or a full commit hash.
-You must not use branch names as `ref` because even if branches are updated lintnet doesn't update installed modules.
-:::
 
 ## Update modules by Renovate
 
