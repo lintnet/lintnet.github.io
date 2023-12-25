@@ -26,3 +26,9 @@ aqua g -i lintnet/lintnet
 ```
 
 4. Download a prebuilt binary from [GitHub Releases](https://github.com/lintnet/lintnet/releases) and install it into `$PATH`
+
+5. Go
+
+```sh
+go install github.com/lintnet/lintnet@latest
+```
