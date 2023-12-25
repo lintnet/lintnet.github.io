@@ -17,7 +17,7 @@ There are two types of modules.
 
 Lint rule module is same with the normal lint rules.
 
-You can use Lint rule modules by specifing them in configuration files.
+You can use Lint rule modules by specifying them in configuration files.
 
 ```jsonnet
 function(param) {
