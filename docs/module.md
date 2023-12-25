@@ -62,6 +62,12 @@ github.com/lintnet/lintnet/examples/lint/csv.jsonnet@v0.2.0
 You must not use branch names as `ref` because even if branches are updated lintnet doesn't update installed modules.
 :::
 
+## Update modules by Renovate
+
+You can update modules by [Renovate](https://docs.renovatebot.com/) using our [Renovate Preset](https://docs.renovatebot.com/config-presets/).
+
+https://github.com/lintnet/renovate-config
+
 ## Where to install modules
 
 Modules are installed on the following directory.
