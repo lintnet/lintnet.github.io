@@ -4,10 +4,6 @@ sidebar_position: 300
 
 # Lint rules
 
-:::caution
-The specification is unstable yet.
-:::
-
 lintnet uses Jsonnet to write lint rules.
 
 e.g.
@@ -47,12 +43,12 @@ The format of `param` is
 
 JSONPath | type | description
 --- | --- | ---
-`.name` | string | Rule name
-`.description` | string | Rule description
+`.name` (required) | string | Rule name
+`.failed` (required) | bool | If this is true, this means the file violates the rule
 `.message` | string | Error message
-`.failed` | bool | If this is true, this means the file violates the rule
 `.level` | string | Error level
-`.location` | `string|any` | Location where errors occur
+`.location` | `string` or `any` | Location where errors occur
+`.description` | string | Rule description
 `.custom` | `any` | Custom fields that users can set freely
 
 ## Native functions
