@@ -24,7 +24,6 @@ function(param) [
     result: [ // expected return value of the lint file
       {
         message: 'age must be greater or equal than 18',
-        failed: true,
         level: 'error',
         location: {
           index: 0,
