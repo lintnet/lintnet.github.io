@@ -38,10 +38,11 @@ Create a lint file `hello.jsonnet`.
 This simple rule checks if data has a field `description`.
 
 ```jsonnet
-function(param) {
-  name: 'description is required',
-  failed: !std.objectHas(param.data.value, 'description'),
-}
+function(param)
+  if std.objectHas(param.data.value, 'description') then [] else [{
+    name: 'description is required',
+    failed: true,
+  }]
 ```
 
 ## Edit the configuration file
@@ -71,6 +72,8 @@ Then the command would fail because `hello.json` violates the lint rule of `hell
 ```console
 $ lintnet lint
 {
+  "lintnet_version": "",
+  "env": "darwin/arm64",
   "errors": [
     {
       "rule": "description is required",
