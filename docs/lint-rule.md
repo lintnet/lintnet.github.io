@@ -12,7 +12,6 @@ e.g.
 function(param)
   if std.objectHas(param.data.value, 'description') then [] else [{
     name: 'description is required',
-    failed: true,
   }]
 ```
 
@@ -40,7 +39,7 @@ The format of `param` is
 JSONPath | type | description
 --- | --- | ---
 `.name` (required) | string | Rule name
-`.failed` (required) | bool | If this is true, this means the file violates the rule
+`.excluded` | bool | If this is true, the result is excluded
 `.message` | string | Error message
 `.level` | string | Error level
 `.location` | `string` or `any` | Location where errors occur

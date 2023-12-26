@@ -41,7 +41,6 @@ This simple rule checks if data has a field `description`.
 function(param)
   if std.objectHas(param.data.value, 'description') then [] else [{
     name: 'description is required',
-    failed: true,
   }]
 ```
 
