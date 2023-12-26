@@ -9,15 +9,10 @@ lintnet uses Jsonnet to write lint rules.
 e.g.
 
 ```jsonnet
-function(param) if param.data.file_type != 'csv' then null else std.mapWithIndex(function(idx, line) {
-  message: 'age must be greater or equal than 18',
-  failed: std.parseInt(line[1]) < 18,
-  level: 'warn',
-  location: {
-    index: idx,
-    line: std.join(',', line),
-  },
-}, param.data.value)
+function(param)
+  if std.objectHas(param.data.value, 'description') then [] else [{
+    name: 'description is required',
+  }]
 ```
 
 ## Top level arguments
@@ -44,7 +39,6 @@ The format of `param` is
 JSONPath | type | description
 --- | --- | ---
 `.name` (required) | string | Rule name
-`.failed` (required) | bool | If this is true, this means the file violates the rule
 `.message` | string | Error message
 `.level` | string | Error level
 `.location` | `string` or `any` | Location where errors occur
