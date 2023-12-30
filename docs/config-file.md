@@ -24,22 +24,36 @@ function(param) {
   targets: [
     {
       data_files: [
-        'examples/data/hello.csv',
-        'examples/data/hello.tsv',
+        'examples/**/*.csv',
       ],
       lint_files: [
         'examples/lint/csv.jsonnet',
-        'examples/lint/filename.jsonnet',
+        {
+          path: 'examples/lint/filename.jsonnet',
+          config: {
+            excluded: ['foo'],
+          },
+        },
       ],
       modules: [
         'github.com/suzuki-shunsuke/example-lintnet-modules/newline.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2',
+        {
+          path: 'github.com/suzuki-shunsuke/example-lintnet-modules/ghalint.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2',
+          config: {
+            excluded: ['foo'],
+          },
+        },
       ],
     },
   ],
 }
 ```
 
+## Top level argument
+
 Now the top level argument `param` is empty. This argument is reserved for future enhancement.
+
+## Glob
 
 `data_files` and `lint_files` are lists of patterns matching with data and lint files.
 Each string is parsed with [bmatcuk/doublestar](https://github.com/bmatcuk/doublestar).
@@ -58,4 +72,37 @@ e.g. foo/example.jsonnet isn't excluded because the later pattern `foo/*.jsonnet
 **/*.jsonnet
 !foo/example.jsonnet
 foo/*.jsonnet
+```
+
+## Lint file's config parameters
+
+Each lint file can take config parameters.
+
+e.g.
+
+```jsonnet
+lint_files: [
+  {
+    path: 'examples/lint/filename.jsonnet',
+    config: {
+      excludes: ['foo'],
+    },
+  },
+],
+modules: [
+  {
+    path: 'github.com/suzuki-shunsuke/example-lintnet-modules/ghalint.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2',
+    config: {
+      excludes: ['foo'],
+    },
+  },
+],
+```
+
+Each lint file can refer to parameters by `param.config`.
+
+e.g.
+
+```jsonnet
+local excludes = std.get(param.config, 'excludes', [])
 ```
