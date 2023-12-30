@@ -26,11 +26,12 @@ The format of `param` is
   data: {
     file_path: "foo.yaml",
     file_type: "yaml",
-    file_text: "...",
+    text: "...",
     value: {
       // data
     }
   },
+  config: {}, // config
 }
 ```
 
@@ -64,3 +65,11 @@ e.g.
 ```jsonnet
 local contained = std.native("strings.Contains")("hello", "ll"); // true
 ```
+
+## Import Modules
+
+Please see [here](./module.md#2-imported-module).
+
+## Config parameter
+
+Please see [here](./config-file.md).

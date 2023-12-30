@@ -4,9 +4,8 @@ sidebar_position: 1
 
 # Home
 
-Configuration file linter powered by [Jsonnet](https://jsonnet.org/)
-
-You can write lint rules in Jsonnet and lint configuration files ([Supported formats](#supported-file-format)).
+lintnet is a secure, powerful, reusable configuration file linter powered by [Jsonnet](https://jsonnet.org/).
+You can write lint rules in Jsonnet and lint various files ([Supported formats](#supported-file-format)).
 
 ## :warning: This project is still under development
 
