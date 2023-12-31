@@ -49,7 +49,7 @@ JSONPath | type | description
 
 ## Native functions
 
-lintnet supports all [native functions](https://pkg.go.dev/github.com/google/go-jsonnet#NativeFunction) supported by [suzuki-shunsuke/go-jsonnet-native-functions](https://github.com/suzuki-shunsuke/go-jsonnet-native-functions), which ports Go standard libraries to Jsonnet.
+lintnet supports all [native functions](https://pkg.go.dev/github.com/google/go-jsonnet#NativeFunction) supported by [lintnet/go-jsonnet-native-functions](https://github.com/lintnet/go-jsonnet-native-functions), which ports Go standard libraries to Jsonnet.
 The following native functions are available.
 
 - strings.Contains
