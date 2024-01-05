@@ -19,7 +19,9 @@ function(param)
 
 [Top level arguments](https://jsonnet.org/ref/language.html#top-level-arguments-tlas) `param` is passed to lint files.
 
-The format of `param` is
+JSON Schema of top level arguments: https://github.com/lintnet/lintnet/blob/main/json-schema/lint-top-level-argument.json
+
+e.g.
 
 ```json5
 {
@@ -36,6 +38,8 @@ The format of `param` is
 ```
 
 ## Format of Jsonnet
+
+JSON Schema: https://github.com/lintnet/lintnet/blob/main/json-schema/lint-result.json
 
 JSONPath | type | description
 --- | --- | ---
