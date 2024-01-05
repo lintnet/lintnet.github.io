@@ -7,6 +7,8 @@ sidebar_position: 400
 To test lint file `x.jsonnet`, you need to create a test file `x_test.jsonnet` on the same directory with `x.jsonnet`.
 `x_test.jsonnet` must return the list of test data and expected results.
 
+JSON Schema: https://github.com/lintnet/lintnet/blob/main/json-schema/test-result.json
+
 e.g.
 
 ```jsonnet

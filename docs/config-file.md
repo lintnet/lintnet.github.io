@@ -65,6 +65,10 @@ function(param) {
 }
 ```
 
+## JSON Schema
+
+https://github.com/lintnet/lintnet/blob/main/json-schema/lintnet.json
+
 ## Top level argument
 
 Now the top level argument `param` is empty. This argument is reserved for future enhancement.
