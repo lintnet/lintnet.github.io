@@ -40,8 +40,8 @@ Please don't use this tool yet.
 - [Test lint rules](test-rule.md)
 - [Share and reuse lint rules as Modules](module.md)
   - [Update Modules by Renovate](module.md#update-modules-by-renovate)
-- Lint across multiple files
-- [Customize output format](config-file.md#customize-output-formats)
+- [Lint across multiple files](guides/lint-across-files.md)
+- [Customize output format](guides/customize-output.md)
 
 ## Why Jsonnet?
 
