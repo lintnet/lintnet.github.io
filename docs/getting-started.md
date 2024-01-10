@@ -49,7 +49,7 @@ function(param)
 Please edit `lintnet.jsonnet` to lint `hello.json` with `hello.jsonnet`.
 
 ```jsonnet
-function(param) [{
+function(param) {
   targets: [
     {
       data_files: [
@@ -60,7 +60,7 @@ function(param) [{
       ],
     },
   ],
-}]
+}
 ```
 
 ## Lint a data file by `lintnet lint`

@@ -76,4 +76,4 @@ Please see [here](./module.md#2-imported-module).
 
 ## Config parameter
 
-Please see [here](./config-file.md).
+Please see [here](./config.md).

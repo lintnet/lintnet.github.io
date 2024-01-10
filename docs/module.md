@@ -24,10 +24,12 @@ function(param) {
   targets: [
     {
       modules: [ // Lint rule modules
-        'github.com/suzuki-shunsuke/example-lintnet-modules/hello.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2',
+        'github.com/lintnet/modules/modules/nllint/main.jsonnet@60a46a4fa4c0e7b1b95f57c479e756afa2f376e9:v0.1.0',
       ],
       data_files: [
-        'examples/data/hello.csv',
+        '**/*',
+        '!.git/**',
+        '!node_modules/**',
       ],
     },
   ],
@@ -40,7 +42,7 @@ You can share variables and functions as Imported modules.
 Imported modules are imported by Jsonnet's `import` statement.
 
 ```jsonnet
-local hello = 'github.com/suzuki-shunsuke/example-lintnet-modules/hello.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2';
+local hello = import 'github.com/lintnet/modules/modules/hello/hello.jsonnet@60a46a4fa4c0e7b1b95f57c479e756afa2f376e9:v0.1.0';
 ```
 
 ## Module path format
@@ -54,7 +56,7 @@ github.com/${repository_owner}/${repository_name}/${file_path}@${full_commit_has
 e.g.
 
 ```
-github.com/suzuki-shunsuke/example-lintnet-modules/hello.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2
+github.com/lintnet/modules/modules/hello/hello.jsonnet@60a46a4fa4c0e7b1b95f57c479e756afa2f376e9:v0.1.0'
 ```
 
 ## Update modules by Renovate
@@ -80,3 +82,33 @@ macOS | `~/Library/Application Support`
 Windows | `LocalAppData`, `%LOCALAPPDATA%` (Fallback)
 
 Or you can change the directory by the environment variable `LINTNET_ROOT_DIR`.
+
+## GitHub Access Tokens
+
+lintnet uses GitHub API to download Modules.
+To avoid API rate limiting, we recommend setting a GitHub Access Token to the environment variables `LINTNET_GITHUB_TOKEN` or `GITHUB_TOKEN`.
+To use modules hosted on private repositories, GitHub Access Tokens with `contents:read` permission are necessary.
+
+## Official Modules
+
+https://github.com/lintnet/modules
+
+## Develop Modules
+
+1. Create a GitHub Repository
+1. Write lint rules
+1. (Optional) Add the topic [lintnet-module](https://github.com/topics/lintnet-module) to the repository so that everyone can find your modules
+1. (Optional) Write tests
+1. (Optional) Set up CI running `lintnet test`
+1. (Optional) Write document
+1. (Optional) Create GitHub Releases
+
+### Write document
+
+Of course the format is free, but we recommend writing the following information.
+
+- Description
+- Example
+- Why is the rule necessary?
+- How to fix
+- config's schema
