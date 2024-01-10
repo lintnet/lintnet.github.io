@@ -8,14 +8,14 @@ lintnet can lint the following file formats.
 lintnet judges file types by file extensions.
 We're considering supporting additional file formats. [#37](https://github.com/lintnet/lintnet/issues/37)
 
-format | file extensions | parser
---- | --- | ---
-CSV | `.csv` | [encoding/csv](https://pkg.go.dev/encoding/csv#Reader)
-HCL 2 | `.hcl` | [tmccombs/hcl2json](https://pkg.go.dev/github.com/tmccombs/hcl2json/convert)
-JSON | `.json` | [encoding/json](https://pkg.go.dev/encoding/json#Decoder)
-TOML | `.toml` | [github.com/BurntSushi/toml](https://godocs.io/github.com/BurntSushi/toml#Decoder)
-TSV | `.tsv` | [encoding/csv](https://pkg.go.dev/encoding/csv#Reader)
-YAML | `.yml`, `.yaml` | [gopkg.in/yaml.v3](https://pkg.go.dev/gopkg.in/yaml.v3#Decoder)
+format | `file_type` | file extensions | parser
+--- | --- | --- | ---
+CSV | csv | `.csv` | [encoding/csv](https://pkg.go.dev/encoding/csv#Reader)
+HCL 2 | hcl2 | `.hcl` | [tmccombs/hcl2json](https://pkg.go.dev/github.com/tmccombs/hcl2json/convert)
+JSON | json | `.json` | [encoding/json](https://pkg.go.dev/encoding/json#Decoder)
+TOML | toml | `.toml` | [BurntSushi/toml](https://godocs.io/github.com/BurntSushi/toml#Decoder)
+TSV | tsv | `.tsv` | [encoding/csv](https://pkg.go.dev/encoding/csv#Reader)
+YAML | yaml | `.yml`, `.yaml` | [gopkg.in/yaml.v3](https://pkg.go.dev/gopkg.in/yaml.v3#Decoder)
 
 ### Plain Text
 

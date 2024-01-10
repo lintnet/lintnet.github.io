@@ -2,7 +2,24 @@
 sidebar_position: 400
 ---
 
-# Configuration file
+# Configuration
+
+## Command line arguments
+
+About command line arguments, please see [usage](guides/usage.md).
+
+## Environment variables
+
+- `LINTNET_CONFIG`: Configuration file path
+- `LINTNET_ERROR_LEVEL`: `debug|info|warn|error`
+- `LINTNET_OUTPUT_SUCCESS`: `true|false`
+- `LINTNET_LOG_LEVEL`: `trace|debug|info|warn|error|fatal|panic`
+- `LINTNET_LOG_COLOR`: `auto|always|never`
+- `LINTNET_GITHUB_TOKEN`: GitHub Access Token for getting Modules
+- `LINTNET_ROOT_DIR`: Root directory where modules are installed
+- `GITHUB_TOKEN`: GitHub Access Token for getting Modules
+
+## Configuration file path
 
 lintnet reads a configuration file `^\.?lintnet\.jsonnet$` on the current directory.
 You can also specify the configuration file path by the command line option `--config (-c)` and the environment variable `LINTNET_CONFIG`.
@@ -11,6 +28,8 @@ You can also specify the configuration file path by the command line option `--c
 lintnet -c foo.yaml lint
 ```
 
+## Scaffold a configuration file
+
 You can scaffold the configuration file by `lintnet init` command.
 
 ```sh
@@ -18,6 +37,8 @@ lintnet init
 ```
 
 e.g.
+
+## Configuration file format
 
 ```jsonnet
 function(param) {
@@ -65,7 +86,7 @@ function(param) {
 }
 ```
 
-## JSON Schema
+## JSON Schema of configuration file
 
 https://github.com/lintnet/lintnet/blob/main/json-schema/lintnet.json
 
@@ -94,64 +115,10 @@ e.g. foo/example.jsonnet isn't excluded because the later pattern `foo/*.jsonnet
 foo/*.jsonnet
 ```
 
-## Lint file's config parameters
+## Parameter of lint rules
 
-Each lint file can take config parameters.
+Please see [Parameterize lint rules](guides/parameterize-rule.md).
 
-e.g.
+## Customize Output
 
-```jsonnet
-lint_files: [
-  {
-    path: 'examples/lint/filename.jsonnet',
-    config: {
-      excludes: ['foo'],
-    },
-  },
-],
-modules: [
-  {
-    path: 'github.com/suzuki-shunsuke/example-lintnet-modules/ghalint.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2',
-    config: {
-      excludes: ['foo'],
-    },
-  },
-],
-```
-
-Each lint file can refer to parameters by `param.config`.
-
-e.g.
-
-```jsonnet
-local excludes = std.get(param.config, 'excludes', [])
-```
-
-## Customize output formats
-
-You can customize output formats by `outputs` configuration.
-
-```jsonnet
-  outputs: [
-    {
-      // id must be unique in outputs
-      id: 'hello',
-      // jsonnet, text/template, html/template
-      renderer: 'jsonnet',
-      // template file
-      template: 'examples/output/output.jsonnet',
-      // Jsonnet file to transform template parameters
-      transform: 'examples/transform/template.jsonnet',
-      config: {},
-    },
-  ],
-```
-
-```sh
-lintnet lint -output hello
-```
-
-### Transform template parameters by Jsonnet
-
-You can transform template parameters by Jsonnet.
-This is useful for `text/template` and `html/template`.
+Please see [Customize Ouptputs](guides/customize-output.md).
