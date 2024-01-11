@@ -62,6 +62,7 @@ https://github.com/orgs/lintnet/repositories
 
 - [lintnet](https://github.com/lintnet/lintnet): CLI
 - [modules](https://github.com/lintnet/modules): Official modules
+- [examples](https://github.com/lintnet/examples): Examples
 - [renovate-config](https://github.com/lintnet/renovate-config): Renovate Config Preset to update modules
 - [lintnet.github.io](https://github.com/lintnet/lintnet.github.io): Official web site
 - [go-jsonnet-native-functions](https://github.com/lintnet/go-jsonnet-native-functions): Go package porting several Go's Standard libraries functions to go-jsonnet's Native functions
