@@ -8,7 +8,7 @@ First, you should read Jsonnet's official documents.
 
 - [Tutorial](https://jsonnet.org/learning/tutorial.html)
 - [Editor plugin, linter, formatter, and so on](https://jsonnet.org/learning/tools.html)
-- [Stanard library](https://jsonnet.org/ref/stdlib.html)
+- [Standard library](https://jsonnet.org/ref/stdlib.html)
 - [Language reference](https://jsonnet.org/ref/language.html)
    - [Equivalence and Equality](https://jsonnet.org/ref/language.html#equivalence-and-equality)
 
@@ -58,7 +58,7 @@ We pick out some functions that we often use.
 - std.length(x): check the size of array and object
 - std.get(o, f, default=null, inc_hidden=true): get the object attribute with a default value
 - std.objectHas(o, f): Check if the attribute exists
-- std.objectKeysValues(o): convert object to arrary
+- std.objectKeysValues(o): convert object to array
 - std.startsWith(a, b), std.endsWith(a, b)
 - std.map(func, arr), std.mapWithIndex(func, arr), std.filterMap(filter_func, map_func, arr), std.filter(func, arr)
 - std.set(arr, keyF=id)
