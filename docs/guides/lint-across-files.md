@@ -28,3 +28,7 @@ e.g.
     },
   ],
 ```
+
+If `combine` is true, the top level arguments of lint rule is changed.
+Instead of `param.data`, `param.combined_data` are set.
+`param.combined_data` is a map whose key is data file path and value is the file data.

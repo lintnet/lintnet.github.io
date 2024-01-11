@@ -4,10 +4,6 @@ sidebar_position: 400
 
 # Configuration
 
-## Command line arguments
-
-About command line arguments, please see [usage](guides/usage.md).
-
 ## Environment variables
 
 - `LINTNET_CONFIG`: Configuration file path
@@ -36,9 +32,9 @@ You can scaffold the configuration file by `lintnet init` command.
 lintnet init
 ```
 
-e.g.
-
 ## Configuration file format
+
+[JSON Schema](https://github.com/lintnet/lintnet/blob/main/json-schema/lintnet.json)
 
 ```jsonnet
 function(param) {
@@ -86,9 +82,10 @@ function(param) {
 }
 ```
 
-## JSON Schema of configuration file
+## File paths in configuration files
 
-https://github.com/lintnet/lintnet/blob/main/json-schema/lintnet.json
+The file path separator must be a slash `/`.
+If file paths are relative paths, the base must be the configuration file.
 
 ## Top level argument
 
@@ -98,6 +95,9 @@ Now the top level argument `param` is empty. This argument is reserved for futur
 
 `data_files` and `lint_files` are lists of patterns matching with data and lint files.
 Each string is parsed with [bmatcuk/doublestar](https://github.com/bmatcuk/doublestar).
+
+### Exclude by `!`
+
 If each string starts with `!`, files matching with the pattern are excluded.
 
 e.g. foo/example.jsonnet is excluded
@@ -115,10 +115,19 @@ e.g. foo/example.jsonnet isn't excluded because the later pattern `foo/*.jsonnet
 foo/*.jsonnet
 ```
 
-## Parameter of lint rules
+### Excluded directories and files
 
-Please see [Parameterize lint rules](guides/parameterize-rule.md).
+lintnet doesn't check `.gitignore`.
+lintnet ignores the following directories.
 
-## Customize Output
+- `.git`
+- `node_modules`
 
-Please see [Customize Ouptputs](guides/customize-output.md).
+And in `lint_files`, files `*_test.jsonnet` are ignored.
+
+## See also
+
+- [Command line arguments](guides/usage.md)
+- [Parameterize lint rules](guides/parameterize-rule.md)
+- [Customize Ouptputs](guides/customize-output.md)
+- [Lint across files](guides/lint-across-files.md)
