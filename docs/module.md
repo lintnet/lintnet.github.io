@@ -103,6 +103,8 @@ https://github.com/lintnet/modules
 1. (Optional) Write document
 1. (Optional) Create GitHub Releases
 
+[The official modules](https://github.com/lintnet/modules) would be a good reference.
+
 ### Write document
 
 Of course the format is free, but we recommend writing the following information.
