@@ -2,7 +2,7 @@
 sidebar_position: 150
 ---
 
-# Getting Started
+# Tutorial
 
 1. [Install lintnet](./install.md)
 1. Scaffold configuration file by `lintnet init`
@@ -11,6 +11,8 @@ sidebar_position: 150
 1. Edit the configuration file
 1. Lint a data file by `lintnet lint`
 1. Fix a data file and run lintnet again
+1. Test the lint file
+1. Use a Module
 
 ## Scaffold configuration file by `lintnet init`
 
@@ -105,3 +107,13 @@ $ lintnet lint # Output nothing
 $ echo $?
 0
 ```
+
+## Test the lint file
+
+## Use a Module
+
+## See also
+
+- [Getting started with Jsonnet](learn-jsonnet.md)
+- [Lint across files](guides/lint-across-files.md)
+- [Examples](example.md)

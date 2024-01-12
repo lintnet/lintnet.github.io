@@ -16,7 +16,7 @@ lintnet -log-level debug lint
 
 ## Check Jsonnet behaviour
 
-See [Check Jsonnet behaviour](getting-started-with-jsonnet#check-jsonnet-behaviour).
+See [Check Jsonnet behaviour](learn-jsonnet#check-jsonnet-behaviour).
 
 ## Output variables with a custom field
 

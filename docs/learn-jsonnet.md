@@ -2,7 +2,7 @@
 sidebar_position: 530
 ---
 
-# Getting started with Jsonnet
+# Learn Jsonnet for lintnet
 
 First, you should read Jsonnet's official documents.
 
