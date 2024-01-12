@@ -114,6 +114,6 @@ $ echo $?
 
 ## See also
 
-- [Getting started with Jsonnet](getting-started-with-jsonnet.md)
+- [Getting started with Jsonnet](learn-jsonnet.md)
 - [Lint across files](guides/lint-across-files.md)
 - [Examples](example.md)
