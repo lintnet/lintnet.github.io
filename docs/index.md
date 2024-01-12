@@ -56,6 +56,47 @@ Please don't use this tool yet.
 - Secure
   - Jsonnet can't access file systems and networks and can't execute external commands
 
+## Comparison
+
+### Conftest
+
+- 👍 High reusability
+- 👍 Jsonnet is easier than Rego, though this is subjective and depends on you
+- 👍 Declarative configuration
+
+#### 👍 High reusability
+
+When We used Conftest, we complaint we couldn't reuse Conftest policies well.
+
+1. Conftest has the mechanism to push and pull policies, but we think this isn't enough. More sophisticated and standardized way is necessary
+1. It's a little difficult to share Conftest policies between multiple repositories.
+Of course it's possible, but there is no standard way.
+1. Each organization writes similar policies from scratch independently.
+This isn't good. Ideally, policies should be shared and reused all over the world.
+
+lintnet has the module mechanism. you can distribute and reuse modules easily in the standard way.
+Not only lint rules but also Jsonnet functions can be shared as modules.
+You can update modules continuously by Renovate.
+
+About modules, please see [Module](module).
+
+#### 👍 Jsonnet is easier than Rego
+
+This is so subjective and depends on you, but some people would feel Jsonnet is easier than Rego.
+
+Rego is awesome, but it's different from other programing languages such as JavaScript and Python, so some people have difficulty in learning Rego.
+
+If you complain about Rego, maybe you like Jsonnet.
+
+### Programing languages such as Python and JavaScript
+
+- 👍 Secure
+- 👍 You only need to implement lint logic. You don't need to implement other feature such as reading and parsing files and outputs results
+
+If you reuse third party libraries as lint rules, you need to check if they are secure.
+Common programing languages such as Python and JavaScript do anything, so attackers can execute malicious codes. It would be difficult to ensure security.
+On the other hand, Jsonnet can't access filesystem and network so it's securer than those programming languages.
+
 ## Sub projects
 
 https://github.com/orgs/lintnet/repositories
