@@ -7,7 +7,8 @@ sidebar_position: 400
 ## Environment variables
 
 - `LINTNET_CONFIG`: Configuration file path
-- `LINTNET_ERROR_LEVEL`: `debug|info|warn|error`
+- [LINTNET_ERROR_LEVEL](guides/error-level.md): `debug|info|warn|error`
+- [LINTNET_SHOWN_ERROR_LEVEL](guides/error-level.md): `debug|info|warn|error`
 - `LINTNET_OUTPUT_SUCCESS`: `true|false`
 - `LINTNET_LOG_LEVEL`: `trace|debug|info|warn|error|fatal|panic`
 - `LINTNET_LOG_COLOR`: `auto|always|never`
