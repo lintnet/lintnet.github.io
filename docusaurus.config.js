@@ -108,7 +108,7 @@ const config = {
         appId: '7QDCQGUZPI',
 
         // Public API key: it is safe to commit it
-        apiKey: 'bb7c13d6666f9abc042ce19dbf3b5a35',
+        apiKey: '3d43616b2bbb02cee2ceca322fad993d',
 
         indexName: 'lintnetio',
 
