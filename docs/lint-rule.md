@@ -19,7 +19,7 @@ function(param)
 
 [Top level arguments](https://jsonnet.org/ref/language.html#top-level-arguments-tlas) `param` is passed to lint files.
 
-JSON Schema of top level arguments: https://github.com/lintnet/lintnet/blob/main/json-schema/lint-top-level-argument.json
+[JSON Schema of top level arguments](https://github.com/lintnet/lintnet/blob/main/json-schema/lint-top-level-argument.json)
 
 e.g.
 
@@ -39,17 +39,7 @@ e.g.
 
 ## Format of Jsonnet
 
-JSON Schema: https://github.com/lintnet/lintnet/blob/main/json-schema/lint-result.json
-
-JSONPath | type | description
---- | --- | ---
-`.name` (required) | string | Rule name
-`.excluded` | bool | If this is true, the result is excluded
-`.message` | string | Error message
-`.level` | string | Error level
-`.location` | `string` or `any` | Location where errors occur
-`.description` | string | Rule description
-`.custom` | `any` | Custom fields that users can set freely
+[JSON Schema](https://github.com/lintnet/lintnet/blob/main/json-schema/lint-result.json)
 
 ## Native functions
 
