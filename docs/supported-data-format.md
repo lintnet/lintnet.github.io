@@ -17,7 +17,35 @@ TOML | toml | `.toml` | [BurntSushi/toml](https://godocs.io/github.com/BurntSush
 TSV | tsv | `.tsv` | [encoding/csv](https://pkg.go.dev/encoding/csv#Reader)
 YAML | yaml | `.yml`, `.yaml` | [gopkg.in/yaml.v3](https://pkg.go.dev/gopkg.in/yaml.v3#Decoder)
 
-### Plain Text
+## YAML is parsed as multiple documents
+
+A YAML file is comprised of multiple documents separated by `---`.
+
+e.g.
+
+```yaml
+---
+# document 0
+name: foo
+---
+# document 1
+name: bar
+```
+
+So A YAML file is parsed as multiple documents even if the file includes only one document.
+In lint rules, you need to iterate multiple documents or get the first document by specifying the index.
+
+e.g.
+
+```jsonnet
+for doc in param.data.value # Iterate multiple documents
+```
+
+```jsonnet
+param.data.value[0] # Get the first document
+```
+
+## Plain Text
 
 lintnet judges file types by file extensions.
 If no parser is found, lintnet parse the file as a plain text file.
