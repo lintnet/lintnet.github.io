@@ -7,7 +7,7 @@ sidebar_position: 1
 [Release Notes](https://github.com/lintnet/lintnet/releases) | [Versioning Policy](https://github.com/suzuki-shunsuke/versioning-policy) | [MIT LICENSE](https://github.com/lintnet/lintnet/blob/main/LICENSE)
 
 lintnet is a secure, powerful, reusable linter powered by [Jsonnet](https://jsonnet.org/).
-You can write lint rules in Jsonnet and lint various files ([Supported formats](#supported-file-format)).
+You can write lint rules in Jsonnet and lint various files ([Supported formats](supported-data-format.md)).
 
 ```console
 $ lintnet lint
@@ -32,7 +32,7 @@ Please don't use this tool yet.
 
 ## Features
 
-- Lint various types of files ([Supported formats](#supported-file-format))
+- Lint various types of files ([Supported formats](supported-data-format.md))
 - Powerful. You can lint configuration files flexibly by Jsonnet
 - Secure. Jsonnet can't access filesystem and network so it's secure compared with common programming languages such as JavaScript
 - Cross Platform. lintnet works on Linux, macOS, Windows / amd64, arm64
