@@ -25,8 +25,7 @@ function(param) [
     },
     result: [ // expected return value of the lint file
       {
-        message: 'age must be greater or equal than 18',
-        failed: true,
+        name: 'age must be greater or equal than 18',
         level: 'error',
         location: {
           index: 0,
@@ -43,3 +42,39 @@ Then please run `lintnet test` command.
 ```sh
 lintnet test
 ```
+
+## Normalization of evaluation result
+
+The evaluation result of lint file is normalized before it is compared with `result`.
+
+- `description` and `excluded` are removed
+- Array elements whose `excluded` is `true` are excluded
+
+For example, If the evaluation result of lint file is as the following,
+
+```json
+[
+  {
+    "name": "foo",
+    "description": "Hello, lintnet!",
+    "excluded": true
+  },
+  {
+    "name": "foo",
+    "description": "Hello, lintnet!",
+    "excluded": false
+  }
+]
+```
+
+`result` must be as the following.
+
+```json
+[
+  {
+    "name": "foo"
+  }
+]
+```
+
+This normalization simplifies `result`.
