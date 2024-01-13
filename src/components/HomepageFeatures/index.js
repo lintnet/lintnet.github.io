@@ -4,11 +4,13 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Shareable',
+    title: 'Powered by Jsonnet',
     description: (
       <>
-        lintnet provides Module system that you can share and reuse lint rules between other projects.
-        You can develop lint rules as both OSS and internal libraries.
+        <a href="https://jsonnet.org/" target="_blank">Jsonnet</a> is a simple and powerful configuration language for app and tool developers.
+        If you're already familiar with Jsonnet, you can easily start lintnet.
+        Even if you're not familiar with Jsonnet, no worries. Jsonnet is easy to understand and the learning cost is low.
+        Jsonnet is widely used, so you can utilize the knowledge and experience of Jsonnet in not only lintnet but also other projects.
       </>
     ),
   },
@@ -21,13 +23,12 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Powered by Jsonnet',
+    title: 'Shareable',
     description: (
       <>
-        Jsonnet is a simple and powerful configuration language for app and tool developers.
-        If you're already familiar with Jsonnet, you can easily start lintnet.
-        Even if you're not familiar with Jsonnet, no worries. Jsonnet is easy to understand and the learning cost is low.
-        Jsonnet is widely used, so you can utilize the knowledge and experience of Jsonnet in not only lintnet but also other projects.
+        lintnet provides Module system that you can share and reuse lint rules between other projects.
+        You can develop lint rules as both OSS and internal libraries.
+        Please see <a href="/docs/module/">Module</a> too.
       </>
     ),
   },
