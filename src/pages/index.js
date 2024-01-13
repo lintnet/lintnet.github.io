@@ -19,7 +19,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/tutorial">
+            to="https://github.com/lintnet/examples/blob/main/tutorial/README.md">
             Tutorial
           </Link>
         </div>
