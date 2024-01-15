@@ -70,7 +70,7 @@ https://github.com/lintnet/renovate-config
 Modules are installed on the following directory.
 
 ```
-${Application Data Directory}/lintnet
+${Application Data Directory}/lintnet/modules
 ```
 
 `${Application Data Directory}` is `XDG_DATA_HOME` in https://github.com/adrg/xdg .
@@ -82,6 +82,33 @@ macOS | `~/Library/Application Support`
 Windows | `LocalAppData`, `%LOCALAPPDATA%` (Fallback)
 
 Or you can change the directory by the environment variable `LINTNET_ROOT_DIR`.
+
+You can get the install path by `lintnet info -module-root-dir`
+
+```sh
+lintnet info -module-root-dir
+```
+
+## :bulb: Cache modules in CI
+
+You can cache modules in CI such as GitHub Actions.
+
+e.g.
+
+```yaml
+- run: echo "module_root_dir=$(lintnet info -module-root-dir)" >> "$GITHUB_OUTPUT"
+  id: lintnet
+
+- uses: actions/cache@v3
+  with:
+    path: |
+      ${{steps.lintnet.outputs.module_root_dir}}
+    key: ${{ hashFiles('lintnet.jsonnet') }}
+
+- run: lintnet lint
+  env:
+    GITHUB_TOKEN: ${{github.token}}
+```
 
 ## GitHub Access Tokens
 
