@@ -1,5 +1,5 @@
 ---
-sidebar_position: 500
+sidebar_position: 400
 ---
 
 # Usage
@@ -9,27 +9,71 @@ sidebar_position: 500
 ```console
 $ lintnet help
 NAME:
-   lintnet - Lint with Jsonnet. https://github.com/lintnet/lintnet
+   lintnet - Powerful, Secure, Shareable Linter Powered by Jsonnet. https://lintnet.github.io/
 
 USAGE:
-   lintnet [global options] command [command options] [arguments...]
+   lintnet [global options] command [command options] 
 
 VERSION:
-   0.2.0 (cafd6e9454e931a6fb9afd5c2a9d8b67d62fe1e3)
+   0.3.0-4 (a17e309c9d93daa83b546df47ed49c5a56b5250b)
 
 COMMANDS:
    version  Show version
    lint     Lint files
+   info     Output the information regarding lintnet
    init     Scaffold configuration file
    test     Test lint files
    help, h  Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
+   --data-root-dir value     The root directory where lintnet is allowed to read data files. The default value is the current directory [$LINTNET_DATA_ROOT_DIR]
    --log-level value         log level [$LINTNET_LOG_LEVEL]
    --log-color value         Log color. One of 'auto' (default), 'always', 'never' [$LINTNET_LOG_COLOR]
    --config value, -c value  Configuration file path [$LINTNET_CONFIG]
    --help, -h                show help
    --version, -v             print the version
+```
+
+## lintnet info
+
+```console
+$ lintnet help info
+NAME:
+   lintnet info - Output the information regarding lintnet
+
+USAGE:
+   lintnet info [command options]
+
+DESCRIPTION:
+   Output the information regarding lintnet.
+
+   $ lintnet info
+   {
+     "version": "v0.3.0",
+     "config_file": "lintnet.jsonnet",
+     "root_dir": "/Users/foo/Library/Application Support/lintnet",
+     "data_root_dir": "/Users/foo/repos/src/github.com/lintnet/lintnet",
+     "env": {
+     "GITHUB_TOKEN": "(masked)",
+     "LINTNET_LOG_LEVEL": "warn"
+     }
+   }
+
+   This command is useful for trouble shooting and sharing your environment in GitHub Issues.
+
+   You can mask the current user name.
+
+   $ lintnet info -mask-user
+
+   You can also get the root directory where modules are installed.
+
+   $ lintnet info -module-root-dir
+
+
+OPTIONS:
+   --module-root-dir  Show only the root directory where modules are installed (default: false)
+   --mask-user        Mask the current user name (default: false)
+   --help, -h         show help
 ```
 
 ## lintnet init
@@ -40,7 +84,16 @@ NAME:
    lintnet init - Scaffold configuration file
 
 USAGE:
-   lintnet init [command options] [arguments...]
+   lintnet init
+
+DESCRIPTION:
+   Scaffold configuration file.
+
+   $ lintnet init
+
+   This command generates lintnet.jsonnet.
+   If the file already exists, this command does nothing.
+
 
 OPTIONS:
    --help, -h  show help
@@ -54,13 +107,33 @@ NAME:
    lintnet lint - Lint files
 
 USAGE:
-   lintnet lint [command options] [arguments...]
+   lintnet lint [command options] [lint file paths and data file paths]
+
+DESCRIPTION:
+   Lint files
+
+   $ lintnet lint
+
+   You can lint only specific files.
+
+   $ lintnet lint [lint file paths and data file paths]
+
+   You can also lint only a specific target.
+
+   $ lintnet lint -target [target id]
+
+   By default, lintnet outputs nothing when the lint succeeds.
+   You can output JSON even if the lint succeeds. This is useful if you pass the output to other program such as jq.
+
+   $ lintnet lint -output-success
+
 
 OPTIONS:
-   --output value, -o value       
-   --target-id value, -t value    
-   --error-level value, -e value   [$LINTNET_ERROR_LEVEL]
-   --output-success               (default: false) [$LINTNET_OUTPUT_SUCCESS]
+   --output value, -o value       You can customize the output format. You can specify an output id
+   --target value, -t value       Lint only a specific target. You can specify a target id
+   --error-level value, -e value  Set the error level [$LINTNET_ERROR_LEVEL]
+   --shown-error-level value      Set the shown error level [$LINTNET_SHOWN_ERROR_LEVEL]
+   --output-success               Output the result even if the lint succeeds (default: false) [$LINTNET_OUTPUT_SUCCESS]
    --help, -h                     show help
 ```
 
@@ -72,10 +145,20 @@ NAME:
    lintnet test - Test lint files
 
 USAGE:
-   lintnet test [command options] [arguments...]
+   lintnet test [command options]
+
+DESCRIPTION:
+   Test lint files.
+
+   $ lintnet test
+
+   You can test only a specific target.
+
+   $ lintnet test -target [target id]
+
 
 OPTIONS:
-   --output-success  (default: false) [$LINTNET_OUTPUT_SUCCESS]
-   --help, -h        show help
+   --target value, -t value  
+   --help, -h                show help
 ```
 
