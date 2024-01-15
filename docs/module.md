@@ -24,7 +24,7 @@ function(param) {
   targets: [
     {
       modules: [ // Lint rule modules
-        'github.com/lintnet/modules/modules/nllint/main.jsonnet@60a46a4fa4c0e7b1b95f57c479e756afa2f376e9:v0.1.0',
+        'github_archive/github.com/lintnet/modules/modules/nllint/main.jsonnet@60a46a4fa4c0e7b1b95f57c479e756afa2f376e9:v0.1.0',
       ],
       data_files: [
         '**/*',
@@ -42,7 +42,7 @@ You can share variables and functions as Imported modules.
 Imported modules are imported by Jsonnet's `import` statement.
 
 ```jsonnet
-local hello = import 'github.com/lintnet/modules/modules/hello/hello.jsonnet@60a46a4fa4c0e7b1b95f57c479e756afa2f376e9:v0.1.0';
+local hello = import 'github_archive/github.com/lintnet/modules/modules/hello/hello.jsonnet@60a46a4fa4c0e7b1b95f57c479e756afa2f376e9:v0.1.0';
 ```
 
 ## Module path format
