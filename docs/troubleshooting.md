@@ -2,7 +2,7 @@
 sidebar_position: 600
 ---
 
-# Trouble Shooting
+# Troubleshooting
 
 This page is a guide for when you face any issues.
 
