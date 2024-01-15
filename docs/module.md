@@ -47,16 +47,16 @@ local hello = import 'github_archive/github.com/lintnet/modules/modules/hello/he
 
 ## Module path format
 
-Now only github.com is supported as the host.
+```
+${type}/${host}/${repository_owner}/${repository_name}/${file_path}@${full_commit_hash}[:${tag}]
+```
 
-```
-github.com/${repository_owner}/${repository_name}/${file_path}@${full_commit_hash}[:${tag}]
-```
+Now only `github_archive` is valid as `type`, and only `github.com` is valid as `host`.
 
 e.g.
 
 ```
-github.com/lintnet/modules/modules/hello/hello.jsonnet@60a46a4fa4c0e7b1b95f57c479e756afa2f376e9:v0.1.0'
+github_archive/github.com/lintnet/modules/modules/hello/hello.jsonnet@60a46a4fa4c0e7b1b95f57c479e756afa2f376e9:v0.1.0'
 ```
 
 ## Update modules by Renovate
