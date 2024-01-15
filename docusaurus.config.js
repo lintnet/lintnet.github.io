@@ -9,7 +9,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'lintnet',
-  tagline: 'Configuration linter powered by Jsonnet',
+  tagline: 'Powerful, Secure, Shareable linter powered by Jsonnet',
   // favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
