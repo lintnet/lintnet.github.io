@@ -6,6 +6,9 @@ sidebar_position: 300
 
 You can customize output formats by `outputs` configuration.
 
+- [JSON Schema](https://github.com/lintnet/lintnet/blob/main/json-schema/lintnet.json)
+- [Tutorial](https://github.com/lintnet/examples/tree/main/tutorial-2)
+
 ```jsonnet
   outputs: [
     {
