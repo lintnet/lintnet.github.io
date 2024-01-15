@@ -13,7 +13,7 @@ command_console() {
 }
 
 commands() {
-  for cmd in init lint test; do
+  for cmd in info init lint test; do
     echo "
 ## lintnet $cmd
 
@@ -22,7 +22,7 @@ $(command_console lintnet help $cmd)"
 }
 
 echo "---
-sidebar_position: 400
+sidebar_position: 500
 ---
 
 # Usage
