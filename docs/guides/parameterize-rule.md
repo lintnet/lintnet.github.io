@@ -19,7 +19,7 @@ lint_files: [
 ],
 modules: [
   {
-    path: 'github.com/suzuki-shunsuke/example-lintnet-modules/ghalint.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2',
+    path: 'github_archive/github.com/suzuki-shunsuke/example-lintnet-modules/ghalint.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2',
     config: {
       excludes: ['foo'],
     },
