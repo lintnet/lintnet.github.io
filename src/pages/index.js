@@ -32,7 +32,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`lintnet - Secure, Powerful, Reusable linter powered by Jsonnet`}
+      title={`lintnet - Powerful, Secure, Shareable linter powered by Jsonnet`}
       description="lintnet is a command line tool that lints files such as JSON and YAML by Jsonnet.<head />">
       <HomepageHeader />
       <main>
