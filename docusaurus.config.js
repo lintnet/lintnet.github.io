@@ -108,10 +108,8 @@ const config = {
       algolia: {
         // The application ID provided by Algolia
         appId: '7QDCQGUZPI',
-
         // Public API key: it is safe to commit it
         apiKey: '3d43616b2bbb02cee2ceca322fad993d',
-
         indexName: 'lintnetio',
 
         // Optional: see doc section below
