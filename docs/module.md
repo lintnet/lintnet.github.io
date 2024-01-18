@@ -75,11 +75,11 @@ ${Application Data Directory}/lintnet/modules
 
 `${Application Data Directory}` is `XDG_DATA_HOME` in https://github.com/adrg/xdg .
 
-environment | Application Data Directory
---- | ---
-Unix | `~/.local/share`
-macOS | `~/Library/Application Support`
-Windows | `LocalAppData`, `%LOCALAPPDATA%` (Fallback)
+| environment | Application Data Directory                  |
+| ----------- | ------------------------------------------- |
+| Unix        | `~/.local/share`                            |
+| macOS       | `~/Library/Application Support`             |
+| Windows     | `LocalAppData`, `%LOCALAPPDATA%` (Fallback) |
 
 Or you can change the directory by the environment variable `LINTNET_ROOT_DIR`.
 
@@ -119,6 +119,8 @@ To use modules hosted on private repositories, GitHub Access Tokens with `conten
 ## Official Modules
 
 https://github.com/lintnet/modules
+
+We ported some linters such as [ghalint](https://github.com/suzuki-shunsuke/ghalint) and [nllint](https://github.com/suzuki-shunsuke/nllint) to lintnet and shared them as official modules.
 
 ## Develop Modules
 

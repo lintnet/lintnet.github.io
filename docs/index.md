@@ -66,13 +66,13 @@ Please don't use this tool yet.
 
 #### 👍 High reusability
 
-When We used Conftest, we complaint we couldn't reuse Conftest policies well.
+When we used Conftest, we complaint we couldn't reuse Conftest policies well.
 
 1. Conftest has the mechanism to push and pull policies, but we think this isn't enough. More sophisticated and standardized way is necessary
 1. It's a little difficult to share Conftest policies between multiple repositories.
-Of course it's possible, but there is no standard way.
+Of course it's possible, but there is no standard way
 1. Each organization writes similar policies from scratch independently.
-This isn't good. Ideally, policies should be shared and reused all over the world.
+This isn't good. Ideally, policies should be shared and reused all over the world
 
 lintnet has the module mechanism. you can distribute and reuse modules easily in the standard way.
 Not only lint rules but also Jsonnet functions can be shared as modules.
