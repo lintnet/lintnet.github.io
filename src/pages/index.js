@@ -12,7 +12,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <img src="https://raw.githubusercontent.com/lintnet/logo/add-logo/images/lintnet.png" alt="lintnet Logo" className="top__logo" />
+        <img src="https://raw.githubusercontent.com/lintnet/logo/main/images/lintnet.png" alt="lintnet Logo" className="top__logo" />
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
