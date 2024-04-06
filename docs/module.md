@@ -28,8 +28,6 @@ function(param) {
       ],
       data_files: [
         '**/*',
-        '!.git/**',
-        '!node_modules/**',
       ],
     },
   ],
