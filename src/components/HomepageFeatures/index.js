@@ -20,7 +20,7 @@ const FeatureList = [
       <>
         lintnet uses <a href="https://jsonnet.org/" target="_blank">Jsonnet</a> for configuration files and lint rules.
         Jsonnet is a well-known, simple, and powerful configuration language.
-        Jsonnet is a superset of JSON, and can generate JSON dinamically.
+        Jsonnet is a superset of JSON, and can generate JSON dynamically.
         Jsonnet is easy to understand and the learning cost is low.
         Jsonnet is widely used, so you can utilize the knowledge and experience of Jsonnet in not only lintnet but also other projects.
       </>
