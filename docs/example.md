@@ -7,7 +7,7 @@ sidebar_position: 500
 - https://github.com/lintnet/examples
   - [k8s](https://github.com/lintnet/examples/tree/main/k8s)
   - [Terraform](https://github.com/lintnet/examples/tree/main/terraform)
-- https://github.com/lintnet/modules
+- https://github.com/lintnet-modules
 
 ## CI
 

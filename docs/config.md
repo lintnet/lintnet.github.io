@@ -52,8 +52,6 @@ function(param) {
             excluded: ['foo'],
           },
         },
-      ],
-      modules: [
         'github_archive/github.com/suzuki-shunsuke/example-lintnet-modules/newline.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2',
         {
           path: 'github_archive/github.com/suzuki-shunsuke/example-lintnet-modules/ghalint.jsonnet@32ca3be646ec5b5861aab72fed30cd71f6eba9bf:v0.1.2',
@@ -61,6 +59,8 @@ function(param) {
             excluded: ['foo'],
           },
         },
+      ],
+      modules: [
       ],
     },
     {
@@ -70,12 +70,12 @@ function(param) {
       ],
       modules: [
         {
-          path: 'github_archive/github.com/lintnet/modules@d69d0083dcb2696dd3427c484f36940f717a9285:v0.1.2',
+          path: 'github_archive/github.com/lintnet-modules/ghalint@0f350f659c7c64c7398249ea0fc23d1cec45c12a:v0.2.0',
           files: [
-            'modules/ghalint/**/main.jsonnet',
-            '!modules/ghalint/deny_read_all_permission/main.jsonnet',
+            'workflow/**/main.jsonnet',
+            '!workflow/action_ref_should_be_full_length_commit_sha/main.jsonnet',
             {
-              path: 'modules/ghalint/action_ref_should_be_full_length_commit_sha/main.jsonnet',
+              path: 'workflow/action_ref_should_be_full_length_commit_sha/main.jsonnet',
               config: {
                 excludes: [
                   'slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml',
