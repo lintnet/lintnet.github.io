@@ -24,7 +24,7 @@ function(param) {
   targets: [
     {
       modules: [ // Lint rule modules
-        'github_archive/github.com/lintnet/modules/modules/nllint/main.jsonnet@60a46a4fa4c0e7b1b95f57c479e756afa2f376e9:v0.1.0',
+        'github_archive/github.com/lintnet-modules/nllint/main.jsonnet@8cfc4eae68ec93f9b92d9048ce51b0d9646c976c:v0.1.0',
       ],
       data_files: [
         '**/*',
@@ -116,9 +116,14 @@ To use modules hosted on private repositories, GitHub Access Tokens with `conten
 
 ## Official Modules
 
-https://github.com/lintnet/modules
+https://github.com/lintnet-modules
 
 We ported some linters such as [ghalint](https://github.com/suzuki-shunsuke/ghalint) and [nllint](https://github.com/suzuki-shunsuke/nllint) to lintnet and shared them as official modules.
+
+- [ghalint](https://github.com/lintnet-modules/ghalint)
+- [nllint](https://github.com/lintnet-modules/nllint)
+- [github-actions](https://github.com/lintnet-modules/github-actions)
+- etc
 
 ## Develop Modules
 
@@ -130,7 +135,7 @@ We ported some linters such as [ghalint](https://github.com/suzuki-shunsuke/ghal
 1. (Optional) Write document
 1. (Optional) Create GitHub Releases
 
-[The official modules](https://github.com/lintnet/modules) would be a good reference.
+[The official modules](https://github.com/lintnet-modules) would be a good reference.
 
 ### Write document
 

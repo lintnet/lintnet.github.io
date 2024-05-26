@@ -14,5 +14,5 @@ Instead of `param.data`, `param.combined_data` are set.
 `param.combined_data` is an array of data file.
 
 - [JSON Schema](https://github.com/lintnet/lintnet/blob/main/json-schema/lint-top-level-argument.json)
-- [Example](https://github.com/lintnet/modules/blob/main/modules/github_actions/workflow_name_must_be_unique/main_combine.jsonnet)
+- [Example](https://github.com/lintnet-modules/github-actions/blob/main/workflow_name_must_be_unique/main_combine.jsonnet)
 
