@@ -6,8 +6,41 @@ sidebar_position: 1
 
 [Release Notes](https://github.com/lintnet/lintnet/releases) | [Versioning Policy](https://github.com/suzuki-shunsuke/versioning-policy) | [MIT LICENSE](https://github.com/lintnet/lintnet/blob/main/LICENSE)
 
-lintnet is a secure, powerful, reusable linter powered by [Jsonnet](https://jsonnet.org/).
-You can write lint rules in Jsonnet and lint various files ([Supported formats](supported-data-format.md)).
+lintnet is a general purpose linter, which brings [Policy as Code](https://developer.hashicorp.com/sentinel/docs/concepts/policy-as-code) to your software development.
+lintnet is a command line tool like [Conftest](https://www.conftest.dev/).
+lintnet is available for Terraform, Kubernetes, GitHub Actions, and any kind of configuration files.
+
+You can write lint rules by [Jsonnet](https://jsonnet.org/) and lint various files ([Supported formats](supported-data-format.md)).
+
+e.g.
+
+lint rule `hello.jsonnet`
+
+```jsonnet
+function(param)
+  if std.objectHas(param.data.value, 'description') then [] else [{
+    name: 'description is required',
+  }]
+```
+
+configuration file `lintnet.jsonnet`
+
+```jsonnet
+function(param) {
+  targets: [
+    {
+      data_files: [
+        'foo.json',
+      ],
+      lint_files: [
+        'hello.jsonnet',
+      ],
+    },
+  ],
+}
+```
+
+Lint files by `lintnet lint` command.
 
 ```console
 $ lintnet lint
@@ -18,7 +51,7 @@ $ lintnet lint
     {
       "name": "description is required",
       "lint_file": "hello.jsonnet",
-      "data_file": "hello.json"
+      "data_file": "foo.json"
     }
   ]
 }
@@ -34,8 +67,7 @@ Please don't use this tool yet.
 
 - Lint various types of files ([Supported formats](supported-data-format.md))
 - Powerful. You can lint configuration files flexibly by Jsonnet
-- Secure. Jsonnet can't access filesystem and network so it's secure compared with common programming languages such as JavaScript
-- Cross Platform. lintnet works on Linux, macOS, Windows / amd64, arm64
+- Secure. Jsonnet retricts access to filesystem and network, and external command execution, so it's secure compared with common programming languages such as Python
 - [Easy to install](install.md). lintnet is a single binary written in [Go](https://go.dev/), so you only need to install an executable file into `$PATH`. lintnet has no dependency that you need to install
 - [Test lint rules](test-rule.md)
 - [Share and reuse lint rules as Modules](module.md)
@@ -54,14 +86,14 @@ Please don't use this tool yet.
   - You can search information and ask help to others when you have some troubles
   - You can utilize the knowledge for not only this tool but also other projects
 - Secure
-  - Jsonnet can't access file systems and networks and can't execute external commands
+  - Jsonnet retricts access to filesystems and networks, and external command execution
 
 ## Comparison
 
 ### Conftest
 
 - 👍 High reusability
-- 👍 Jsonnet is easier than Rego, though this is subjective and depends on you
+- 👍 Some people would prefer Jsonnet over [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/), though this is subjective and up to you
 - 👍 Declarative configuration
 
 #### 👍 High reusability
@@ -80,9 +112,9 @@ You can update modules continuously by Renovate.
 
 About modules, please see [Module](module).
 
-#### 👍 Jsonnet is easier than Rego
+#### 👍 Some people would prefer Jsonnet over Rego
 
-This is so subjective and depends on you, but some people would feel Jsonnet is easier than Rego.
+This is so subjective and up to you, but some people would feel Jsonnet is easier than Rego.
 
 Rego is awesome, but it's different from other programing languages such as JavaScript and Python, so some people have difficulty in learning Rego.
 
@@ -95,7 +127,7 @@ If you complain about Rego, maybe you like Jsonnet.
 
 If you reuse third party libraries as lint rules, you need to check if they are secure.
 Common programing languages such as Python and JavaScript do anything, so attackers can execute malicious codes. It would be difficult to ensure security.
-On the other hand, Jsonnet can't access filesystem and network so it's securer than those programming languages.
+On the other hand, Jsonnet restricts access to filesystem and network, and external command execution so it's securer than those programming languages.
 
 ## Sub projects
 
