@@ -41,6 +41,14 @@ e.g.
 
 [JSON Schema](https://github.com/lintnet/lintnet/blob/main/json-schema/lint-result.json)
 
+## Conversion of `param.data.value`
+
+[#437](https://github.com/lintnet/lintnet/pull/437)
+
+lintnet parses data files and converts them to JSON.
+YAML supports non string map keys such as integer and boolean, but JSON doesn't.
+So when lintnet converts data files to JSON, lintnet converts non string map keys to string.
+
 ## Native functions
 
 lintnet supports all [native functions](https://pkg.go.dev/github.com/google/go-jsonnet#NativeFunction) supported by [lintnet/go-jsonnet-native-functions](https://github.com/lintnet/go-jsonnet-native-functions), which ports Go standard libraries to Jsonnet.
