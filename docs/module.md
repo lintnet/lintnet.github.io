@@ -43,6 +43,12 @@ Imported modules are imported by Jsonnet's `import` statement.
 local hello = import 'github_archive/github.com/lintnet/modules/modules/hello/hello.jsonnet@60a46a4fa4c0e7b1b95f57c479e756afa2f376e9:v0.1.0';
 ```
 
+You can utilize third party Jsonnet libraries unrelated to lintnet too.
+
+e.g.
+
+- https://github.com/jsonnet-libs/xtd ([example](https://github.com/lintnet/examples/tree/main/jsonnet-library/xtd))
+
 ## Module path format
 
 ```
