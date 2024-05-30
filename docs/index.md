@@ -58,11 +58,6 @@ $ lintnet lint
 FATA[0000] lintnet failed                                env=darwin/arm64 error=lint failed program=lintnet version=0.2.0
 ```
 
-## :warning: This project is still under development
-
-This tool doesn't work and API is unstable yet.
-Please don't use this tool yet.
-
 ## Features
 
 - Lint various types of files ([Supported formats](supported-data-format.md))
