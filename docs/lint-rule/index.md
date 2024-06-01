@@ -1,5 +1,5 @@
 ---
-sidebar_position: 300
+sidebar_position: 100
 ---
 
 # Lint rules
@@ -51,14 +51,7 @@ So when lintnet converts data files to JSON, lintnet converts non string map key
 
 ## Native functions
 
-lintnet supports all [native functions](https://pkg.go.dev/github.com/google/go-jsonnet#NativeFunction) supported by [lintnet/go-jsonnet-native-functions](https://github.com/lintnet/go-jsonnet-native-functions), which ports Go standard libraries to Jsonnet.
-The following native functions are available.
-
-- strings.Contains
-- strings.TrimPrefix
-- strings.TrimSpace
-- regexp.MatchString
-- filepath.Base
+lintnet supports some [native functions](https://pkg.go.dev/github.com/google/go-jsonnet#NativeFunction).
 
 You can executed these functions by `std.native("{native function name}")`.
 
@@ -67,6 +60,8 @@ e.g.
 ```jsonnet
 local contained = std.native("strings.Contains")("hello", "ll"); // true
 ```
+
+For details, please see [Native functions](native-function.md).
 
 ## Import Modules
 
