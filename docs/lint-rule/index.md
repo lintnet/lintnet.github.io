@@ -65,8 +65,8 @@ For details, please see [Native functions](native-function.md).
 
 ## Import Modules
 
-Please see [here](./module.md#2-imported-module).
+Please see [here](../module.md#2-imported-module).
 
 ## Config parameter
 
-Please see [here](./config.md).
+Please see [here](../config.md).
