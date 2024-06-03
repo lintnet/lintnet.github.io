@@ -37,7 +37,7 @@ Please see GoDoc and [API design](https://github.com/lintnet/go-jsonnet-native-f
 
 ## Request a new function
 
-If you want new functions, please check the disscussion.
+If you want new functions, please check the discussion.
 
 https://github.com/lintnet/lintnet/discussions/472
 
