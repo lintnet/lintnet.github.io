@@ -35,6 +35,12 @@ Please see GoDoc and [API design](https://github.com/lintnet/go-jsonnet-native-f
 - [strings.TrimSpace](https://pkg.go.dev/strings#TrimSpace)
 - [url.Parse](#urlparse)
 
+## Request a new function
+
+If you want new functions, please check the discussion.
+
+https://github.com/lintnet/lintnet/discussions/472
+
 ## API design
 
 Please see [API design](https://github.com/lintnet/go-jsonnet-native-functions?tab=readme-ov-file#api-design).
