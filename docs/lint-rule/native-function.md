@@ -4,6 +4,11 @@ sidebar_position: 100
 
 # Native functions
 
+:::caution
+We don't write the document of each native functions because we have ported too many functions from Go standard library to maintain the document of them.
+Please see GoDoc and [API design](https://github.com/lintnet/go-jsonnet-native-functions?tab=readme-ov-file#api-design).
+:::
+
 - [filepath.Base](https://pkg.go.dev/path/filepath#Base)
 - [jsonschema.Validate](#jsonschemavalidate)
 - [path.Base](https://pkg.go.dev/path#Base)
