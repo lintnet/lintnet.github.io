@@ -4,6 +4,7 @@
   <ShortName>lintnet</ShortName>
   <Description>Search lintnet</Description>
   <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">https://lintnet.github.io/https://raw.githubusercontent.com/lintnet/logo/main/images/logo.ico</Image>
   <Url type="text/html" method="get" template="https://lintnet.github.io/search?q={searchTerms}"/>
   <Url type="application/opensearchdescription+xml" rel="self" template="https://lintnet.github.io/opensearch.xml" />
   <moz:SearchForm>https://lintnet.github.io/</moz:SearchForm>
