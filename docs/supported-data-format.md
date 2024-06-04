@@ -5,7 +5,7 @@ sidebar_position: 200
 # Supported data format
 
 :::info
-If you want to request new data format, please see the discussion [#477](https://github.com/lintnet/lintnet/discussions/477).
+If you want to request new data format, please [create an issue](https://github.com/lintnet/lintnet/issues/new?assignees=&labels=enhancement%2Cnew-data-format&projects=&template=new-data-format-request.yml&title=New+Data+Format+Request%3A+%3Cformat+name%3E).
 :::
 
 lintnet can lint the following file formats.
