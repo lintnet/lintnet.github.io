@@ -4,6 +4,10 @@ sidebar_position: 200
 
 # Supported data format
 
+:::info
+If you want to request new data format, please see the discussion [#477](https://github.com/lintnet/lintnet/discussions/477).
+:::
+
 lintnet can lint the following file formats.
 lintnet judges file types by file extensions.
 We're considering supporting additional file formats. [#37](https://github.com/lintnet/lintnet/issues/37)
