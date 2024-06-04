@@ -4,6 +4,10 @@ sidebar_position: 100
 
 # Native functions
 
+:::info
+If you want new functions, please [create issues](https://github.com/lintnet/lintnet/issues/new?assignees=&labels=enhancement%2Cnew-native-function&projects=&template=new-native-function-request.yml).
+:::
+
 :::caution
 We don't write the document of each native functions because we have ported too many functions from Go standard library to maintain the document of them.
 Please see GoDoc and [API design](https://github.com/lintnet/go-jsonnet-native-functions?tab=readme-ov-file#api-design).
@@ -34,12 +38,6 @@ Please see GoDoc and [API design](https://github.com/lintnet/go-jsonnet-native-f
 - [strings.TrimPrefix](https://pkg.go.dev/strings#TrimPrefix)
 - [strings.TrimSpace](https://pkg.go.dev/strings#TrimSpace)
 - [url.Parse](#urlparse)
-
-## Request a new function
-
-If you want new functions, please check the discussion.
-
-https://github.com/lintnet/lintnet/discussions/472
 
 ## API design
 
