@@ -15,7 +15,7 @@ USAGE:
    lintnet [global options] command [command options] 
 
 VERSION:
-   0.3.0-4 (a17e309c9d93daa83b546df47ed49c5a56b5250b)
+   0.4.5 (b5b720f0cf460b155ddc83c63143ed7b736976de)
 
 COMMANDS:
    version  Show version
@@ -23,10 +23,10 @@ COMMANDS:
    info     Output the information regarding lintnet
    init     Scaffold configuration file
    test     Test lint files
+   new      Create a lint file and a test file
    help, h  Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --data-root-dir value     The root directory where lintnet is allowed to read data files. The default value is the current directory [$LINTNET_DATA_ROOT_DIR]
    --log-level value         log level [$LINTNET_LOG_LEVEL]
    --log-color value         Log color. One of 'auto' (default), 'always', 'never' [$LINTNET_LOG_COLOR]
    --config value, -c value  Configuration file path [$LINTNET_CONFIG]
@@ -93,6 +93,29 @@ DESCRIPTION:
 
    This command generates lintnet.jsonnet.
    If the file already exists, this command does nothing.
+
+
+OPTIONS:
+   --help, -h  show help
+```
+
+## lintnet new
+
+```console
+$ lintnet help new
+NAME:
+   lintnet new - Create a lint file and a test file
+
+USAGE:
+   lintnet new [<lint file|main.jsonnet>]
+
+DESCRIPTION:
+   Create a lint file and a test file.
+
+   $ lintnet new [<lint file|main.jsonnet>]
+
+   This command creates a lint file and a test file.
+   If the argument is not given, the lint file is created as "main.jsonnet".
 
 
 OPTIONS:
