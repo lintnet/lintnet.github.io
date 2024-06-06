@@ -9,7 +9,7 @@ lintnet uses Jsonnet to write lint rules.
 e.g.
 
 ```jsonnet
-function(param) // param is a Top lavel arguments
+function(param) // param is a Top level arguments
   if std.objectHas(param.data.value, 'description') then [] else [{
     name: 'description is required',
   }]
