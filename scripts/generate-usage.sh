@@ -13,7 +13,7 @@ command_console() {
 }
 
 commands() {
-  for cmd in info init lint test; do
+  for cmd in info init new lint test; do
     echo "
 ## lintnet $cmd
 

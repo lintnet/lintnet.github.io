@@ -4,32 +4,16 @@ sidebar_position: 300
 
 # Customize Outputs
 
-You can customize output formats by `outputs` configuration.
+By default, lintnet outputs JSON when the lint fails.
+You can custmize the JSON format with Jsonnet and Go's [text/template](https://pkg.go.dev/text/template) and [html/template](https://pkg.go.dev/html/template).
 
-- [JSON Schema](https://github.com/lintnet/lintnet/blob/main/json-schema/lintnet.json)
-- [Tutorial](https://github.com/lintnet/examples/tree/main/tutorial-2)
+For detail, please see [the example](https://github.com/lintnet/examples/tree/main/customize-output).
 
-```jsonnet
-  outputs: [
-    {
-      // id must be unique in outputs
-      id: 'hello',
-      // jsonnet, text/template, html/template
-      renderer: 'jsonnet',
-      // template file
-      template: 'examples/output/output.jsonnet',
-      // Jsonnet file to transform template parameters
-      transform: 'examples/transform/template.jsonnet',
-      config: {},
-    },
-  ],
-```
+## Output JSON even if lint passes
+
+By default `lintnet lint` command outputs nothing if lint passes.
+If you want to output JSON even if lint passes, please use `--output-success` option.
 
 ```sh
-lintnet lint -output hello
+lintnet lint -output-success
 ```
-
-## Transform template parameters by Jsonnet
-
-You can transform template parameters by Jsonnet.
-This is useful for `text/template` and `html/template`.
