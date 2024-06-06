@@ -9,10 +9,16 @@ lintnet uses Jsonnet to write lint rules.
 e.g.
 
 ```jsonnet
-function(param)
+function(param) // param is a Top lavel arguments
   if std.objectHas(param.data.value, 'description') then [] else [{
     name: 'description is required',
   }]
+```
+
+## Scaffold a lint file
+
+```sh
+lintnet new [<lint file name | main.jsonnet>]
 ```
 
 ## Top level arguments
@@ -25,21 +31,73 @@ e.g.
 
 ```json5
 {
+  // A data file
+  // If the lint file name ends with _combine.jsonnet, this field is empty.
   data: {
-    file_path: "foo.yaml",
-    file_type: "yaml",
-    text: "...",
+    file_path: 'foo.yaml',
+    file_type: 'yaml',
+    text: '...',
     value: {
       // data
     }
   },
-  config: {}, // config
+
+  // A list of data files.
+  // If the lint file name ends with _combine.jsonnet, this field is set.
+  // Otherwise, this field is empty.
+  combined_data: [
+    { // same as data
+      file_path: 'foo.yaml',
+      file_type: 'yaml',
+      text: '...',
+      value: {
+        // data
+      }
+    },
+    // ...
+  ],
+  config: {}, // configuration of the lint rule
 }
 ```
 
 ## Format of Jsonnet
 
 [JSON Schema](https://github.com/lintnet/lintnet/blob/main/json-schema/lint-result.json)
+
+```jsonnet
+function(param) [
+  {
+    // Only name is required. Other fields are optional.
+    name: 'rule name',
+
+    description: 'rule description',
+    message: 'error message',
+
+    // location where errors occur
+    // The format is free.
+    location: {}, // an object
+    location: '', // string is also ok
+
+    // URLs to the reference of lint rules and errors.
+    // links is either an array or an object.
+    links: [
+      'https://example.com/',
+      {
+        title: 'title',
+        link: 'https://example.com/',
+      },
+    ],
+    // links: {
+    //   '<title>': 'https://example.com/',
+    // },
+
+    level: 'error', // Error level
+    excluded: false, // If true, the element is excluded.
+    custom: {}, // An object. Users can use this field freely.
+  },
+  // ...
+]
+```
 
 ## Conversion of `param.data.value`
 
