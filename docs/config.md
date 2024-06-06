@@ -37,7 +37,7 @@ lintnet init
 
 [JSON Schema](https://github.com/lintnet/lintnet/blob/main/json-schema/lintnet.json)
 
-The configuration is a function returing an object.
+The configuration is a function returning an object.
 
 ```jsonnet
 function(param) {
