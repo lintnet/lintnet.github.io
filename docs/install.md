@@ -4,7 +4,8 @@ sidebar_position: 100
 
 # Install
 
-lintnet is a single binary written in [Go](https://go.dev/). So you only need to install an executable file into `$PATH`.
+lintnet is a single binary written in [Go](https://go.dev/).
+So you only need to install an executable file into `$PATH`.
 
 1. [Homebrew](https://brew.sh/)
 
@@ -31,4 +32,28 @@ aqua g -i lintnet/lintnet
 
 ```sh
 go install github.com/lintnet/lintnet@latest
+```
+
+## Shell completion
+
+lintnet >= v0.4.7
+
+lintnet supports shell completion for bash, zsh, and fish.
+
+bash
+
+```sh
+source <(lintnet completion bash)
+```
+
+zsh
+
+```sh
+source <(lintnet completion zsh)
+```
+
+fish
+
+```sh
+lintnet completion fish > ~/.config/fish/completions/lintnet.fish
 ```
