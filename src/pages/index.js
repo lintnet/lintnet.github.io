@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <Layout
       title={`lintnet - Powerful, Secure, Shareable linter powered by Jsonnet`}
-      description="lintnet is a command line tool that lints files such as JSON and YAML by Jsonnet.<head />">
+      description="lintnet is a command line tool that lints files such as JSON and YAML by Jsonnet.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
