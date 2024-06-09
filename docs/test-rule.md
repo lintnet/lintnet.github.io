@@ -29,9 +29,11 @@ A test case is a pair of test data and expected result.
   name: 'Test case name',
   // test data
   // ...
-  // config is configuration passed to the lint file
-  // config is optional.
-  config: {},
+  param: {
+    // config is configuration passed to the lint file
+    // config is optional.
+    config: {},
+  },
   result: [
     // expected return value of the lint file
   ],
