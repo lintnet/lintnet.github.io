@@ -15,16 +15,17 @@ USAGE:
    lintnet [global options] command [command options] 
 
 VERSION:
-   0.4.5 (b5b720f0cf460b155ddc83c63143ed7b736976de)
+   0.4.7 (dbd81305b0538d5855fb07251463040fce765ca2)
 
 COMMANDS:
-   version  Show version
-   lint     Lint files
-   info     Output the information regarding lintnet
-   init     Scaffold configuration file
-   test     Test lint files
-   new      Create a lint file and a test file
-   help, h  Shows a list of commands or help for one command
+   version     Show version
+   lint, l     Lint files
+   info        Output the information regarding lintnet
+   init        Scaffold configuration file
+   test, t     Test lint files
+   new         Create a lint file and a test file
+   completion  Output shell completion script for bash, zsh, or fish
+   help, h     Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
    --log-level value         log level [$LINTNET_LOG_LEVEL]
@@ -168,20 +169,27 @@ NAME:
    lintnet test - Test lint files
 
 USAGE:
-   lintnet test [command options]
+   lintnet test [command options][<lint file, test file, or directory> ...]
 
 DESCRIPTION:
    Test lint files.
 
-   $ lintnet test
+   If you run "lintnet test" without any argument,
+   lintnet searches lint files using a configuration file and tests all lint files having test files.
+   Lint files without test files are ignored.
+   You can test only specific files by specifying files as arguments.
+   If you specify files explicitly, a configuration file is unnecessary.
+   This means when you develop modules, you don't have to prepare a configuration file.
+   If you specify directories, lint files in those directories and subdirectories are tested.
+   For example, "lintnet test ." searches files matching the glob pattern "**/*.jsonnet",
+   and "lintnet test foo" search files matching "foo/**/*.jsonnet".
+   If a configuration file isn't specified and isn't found, "lintnet test" works as "lintnet test .".
 
-   You can test only a specific target.
-
-   $ lintnet test -target [target id]
+   You can test only a specific target with -target option.
 
 
 OPTIONS:
-   --target value, -t value  
+   --target value, -t value  Target ID
    --help, -h                show help
 ```
 
