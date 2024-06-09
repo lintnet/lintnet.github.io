@@ -56,13 +56,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      // image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'lintnet',
-        // logo: {
-        //   alt: 'Lintnet',
-        //   src: 'img/logo.svg',
-        // },
+        logo: {
+          alt: 'Lintnet',
+          src: 'https://raw.githubusercontent.com/lintnet/logo/main/images/logo.svg',
+        },
         items: [
           {
             type: 'doc',
@@ -99,7 +99,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${2023} Shunsuke Suzuki`,
+        copyright: `Copyright © 2023 Shunsuke Suzuki`,
       },
       prism: {
         theme: prismThemes.github,
