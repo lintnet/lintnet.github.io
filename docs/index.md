@@ -6,65 +6,24 @@ sidebar_position: 1
 
 [Release Notes](https://github.com/lintnet/lintnet/releases) | [Versioning Policy](https://github.com/suzuki-shunsuke/versioning-policy) | [MIT LICENSE](https://github.com/lintnet/lintnet/blob/main/LICENSE)
 
-lintnet is a general purpose linter, which brings [Policy as Code](https://developer.hashicorp.com/sentinel/docs/concepts/policy-as-code) to your software development.
-lintnet is a command line tool like [Conftest](https://www.conftest.dev/).
-lintnet is available for Terraform, Kubernetes, GitHub Actions, and any kind of configuration files.
-
-You can write lint rules by [Jsonnet](https://jsonnet.org/) and lint various files ([Supported formats](supported-data-format.md)).
-
-e.g.
-
-lint rule `hello.jsonnet`
-
-```jsonnet
-function(param)
-  if std.objectHas(param.data.value, 'description') then [] else [{
-    name: 'description is required',
-  }]
-```
-
-configuration file `lintnet.jsonnet`
-
-```jsonnet
-function(param) {
-  targets: [
-    {
-      data_files: [
-        'foo.json',
-      ],
-      lint_files: [
-        'hello.jsonnet',
-      ],
-    },
-  ],
-}
-```
-
-Lint files by `lintnet lint` command.
-
-```console
-$ lintnet lint
-{
-  "lintnet_version": "0.2.0",
-  "env": "darwin/arm64",
-  "errors": [
-    {
-      "name": "description is required",
-      "lint_file": "hello.jsonnet",
-      "data_file": "foo.json"
-    }
-  ]
-}
-FATA[0000] lintnet failed                                env=darwin/arm64 error=lint failed program=lintnet version=0.2.0
-```
+lintnet is a general-purpose linter that brings [Policy as Code](https://developer.hashicorp.com/sentinel/docs/concepts/policy-as-code) to your software development.
+It is a command-line tool like [Conftest](https://www.conftest.dev/) but offers greater reusability and an enhanced user experience. 
+It is available for Terraform, Kubernetes, GitHub Actions, and any kind of configuration files.
+Its versatility allows it to cover many use cases, eliminating the need for multiple different linters.
+Unlike other linters, lintnet itself does not come with built-in lint rules; instead, it runs user-defined lint rules.
+This means you no longer need to develop linters from scratch.
+Instead, you can focus on developing lint rules while lintnet handles the rest.
+These lint rules can be reused and published as Modules.
+Our goal is to create an ecosystem for lint rules where everyone can easily use and publish them, thereby promoting the Policy as Code approach in software development.
+You can define lint rules using [Jsonnet](https://jsonnet.org/), a simple, powerful, and secure configuration language.
+lintnet enhances Jsonnet's capabilities with [go-jsonnet](https://github.com/google/go-jsonnet)'s native functions, making it even more powerful.
 
 ## Features
 
-- Lint various types of files ([Supported formats](supported-data-format.md))
-- Powerful. You can lint configuration files flexibly by Jsonnet
-- Secure. Jsonnet retricts access to filesystem and network, and external command execution, so it's secure compared with common programming languages such as Python
+- [Support various formats](supported-data-format.md)
+- [Define lint rules by Jsonnet](#why-jsonnet)
 - [Easy to install](install.md). lintnet is a single binary written in [Go](https://go.dev/), so you only need to install an executable file into `$PATH`. lintnet has no dependency that you need to install
-- [Test lint rules](test-rule.md)
+- [Unit testing of lint rules](test-rule.md)
 - [Share and reuse lint rules as Modules](module.md)
   - [Update Modules by Renovate](module.md#update-modules-by-renovate)
 - [Lint across multiple files](guides/lint-across-files.md)
@@ -98,14 +57,14 @@ When we used Conftest, we complaint we couldn't reuse Conftest policies well.
 1. Conftest has the mechanism to push and pull policies, but we think this isn't enough. More sophisticated and standardized way is necessary
 1. It's a little difficult to share Conftest policies between multiple repositories.
 Of course it's possible, but there is no standard way
-1. Each organization writes similar policies from scratch independently.
+1. People write similar policies from scratch independently.
 This isn't good. Ideally, policies should be shared and reused all over the world
 
-lintnet has the module mechanism. you can distribute and reuse modules easily in the standard way.
+lintnet has the module mechanism. you can distribute and reuse modules so easily in the standard way.
 Not only lint rules but also Jsonnet functions can be shared as modules.
 You can update modules continuously by Renovate.
 
-About modules, please see [Module](module).
+About modules, please see [Module](module.md).
 
 #### 👍 Some people would prefer Jsonnet over Rego
 
@@ -121,8 +80,8 @@ If you complain about Rego, maybe you like Jsonnet.
 - 👍 You only need to implement lint logic. You don't need to implement other feature such as reading and parsing files and outputs results
 
 If you reuse third party libraries as lint rules, you need to check if they are secure.
-Common programing languages such as Python and JavaScript do anything, so attackers can execute malicious codes. It would be difficult to ensure security.
-On the other hand, Jsonnet restricts access to filesystem and network, and external command execution so it's securer than those programming languages.
+Common programing languages such as Python and JavaScript can do anything, so attackers can execute malicious codes. It would be difficult to ensure security.
+On the other hand, Jsonnet restricts access to filesystem and network, and OS command execution so it's securer than those programming languages.
 
 ## Sub projects
 
