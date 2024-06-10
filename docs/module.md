@@ -129,6 +129,10 @@ We ported some linters such as [ghalint](https://github.com/suzuki-shunsuke/ghal
 - [ghalint](https://github.com/lintnet-modules/ghalint)
 - [nllint](https://github.com/lintnet-modules/nllint)
 - [github-actions](https://github.com/lintnet-modules/github-actions)
+- [k8s](https://github.com/lintnet-modules/k8s)
+- [Terraform](https://github.com/lintnet-modules/terraform)
+  - [Terraform AWS Provider](https://github.com/lintnet-modules/terraform-aws)
+  - [Terraform Google Provider](https://github.com/lintnet-modules/terraform-google)
 - etc
 
 ## Develop Modules
