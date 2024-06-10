@@ -135,6 +135,11 @@ We ported some linters such as [ghalint](https://github.com/suzuki-shunsuke/ghal
   - [Terraform Google Provider](https://github.com/lintnet-modules/terraform-google)
 - etc
 
+## Find Modules
+
+We recommend adding the topic [lintnet-module](https://github.com/topics/lintnet-module) to Module repositories so that everyone can find modules.
+So please check the topic [lintnet-module](https://github.com/topics/lintnet-module).
+
 ## Develop Modules
 
 1. Create a GitHub Repository
