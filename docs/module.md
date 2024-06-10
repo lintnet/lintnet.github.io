@@ -129,7 +129,16 @@ We ported some linters such as [ghalint](https://github.com/suzuki-shunsuke/ghal
 - [ghalint](https://github.com/lintnet-modules/ghalint)
 - [nllint](https://github.com/lintnet-modules/nllint)
 - [github-actions](https://github.com/lintnet-modules/github-actions)
+- [k8s](https://github.com/lintnet-modules/k8s)
+- [Terraform](https://github.com/lintnet-modules/terraform)
+  - [Terraform AWS Provider](https://github.com/lintnet-modules/terraform-aws)
+  - [Terraform Google Provider](https://github.com/lintnet-modules/terraform-google)
 - etc
+
+## Find Modules
+
+We recommend adding the topic [lintnet-module](https://github.com/topics/lintnet-module) to Module repositories so that everyone can find modules.
+So please check the topic [lintnet-module](https://github.com/topics/lintnet-module).
 
 ## Develop Modules
 
