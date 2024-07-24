@@ -119,7 +119,7 @@ An element of `modules` is either a string or an object.
   },
   {
     path: 'github_archive/github.com/lintnet-modules/ghalint@00571db321e413d45be457f39e48cd4237399bb7:v0.3.0',
-    // You can specify file paths in a module with the attriute files.
+    // You can specify file paths in a module with the attribute files.
     // This style is useful to specify multiple file path patterns in a module and set config parameter by lint rule
     files: [
       'workflow/**/main.jsonnet',
