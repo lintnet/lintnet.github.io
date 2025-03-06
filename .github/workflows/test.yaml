@@ -10,7 +10,7 @@ env:
 jobs:
   path-filter:
     # Get changed files to filter jobs
-    timeout-minutes: 30
+    timeout-minutes: 10
     outputs:
       update-aqua-checksums: ${{steps.changes.outputs.update-aqua-checksums}}
       renovate-config-validator: ${{steps.changes.outputs.renovate-config-validator}}
@@ -32,25 +32,6 @@ jobs:
             ghalint:
               - .github/workflows/*.yaml
               - aqua/imports/ghalint.yaml
-
-  status-check:
-    # This job is used for main branch's branch protection rule's status check.
-    # If all dependent jobs succeed or are skipped this job succeeds.
-    timeout-minutes: 10
-    runs-on: ubuntu-latest
-    needs:
-      - path-filter
-      - renovate-config-validator
-      - test
-      - typos
-      - ghalint
-      - update-aqua-checksums
-    permissions: {}
-    if: always()
-    steps:
-      - uses: suzuki-shunsuke/required-status-check-action@2b5a46064846b09381852c2c4217e898f639e768 # v0.1.3
-        with:
-          needs: ${{ toJson(needs) }}
 
   renovate-config-validator:
     # Validate Renovate Configuration by renovate-config-validator.
@@ -80,7 +61,7 @@ jobs:
 
   ghalint:
     # Validate GitHub Actions Workflows by ghalint.
-    timeout-minutes: 30
+    timeout-minutes: 15
     needs: path-filter
     if: needs.path-filter.outputs.ghalint == 'true'
     runs-on: ubuntu-latest
@@ -99,7 +80,7 @@ jobs:
           GHALINT_LOG_COLOR: always
 
   typos:
-    timeout-minutes: 30
+    timeout-minutes: 15
     runs-on: ubuntu-latest
     permissions: {}
     steps:
