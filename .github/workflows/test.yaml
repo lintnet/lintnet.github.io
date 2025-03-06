@@ -33,35 +33,24 @@ jobs:
               - .github/workflows/*.yaml
               - aqua/imports/ghalint.yaml
 
-  enable-auto-merge:
-    uses: ./.github/workflows/wc-enable-auto-merge.yaml
-    permissions: {}
-    needs:
-      - status-check
-    secrets:
-      gh_app_id: ${{secrets.APP_ID}}
-      gh_app_private_key: ${{secrets.APP_PRIVATE_KEY}}
-    # "! failure() && ! cancelled()" is required. success() returns false if dependent jobs are skipped.
-    # https://github.com/community/community/discussions/45058
-    # By default success() is used so we have to override success() by "! failure() && ! cancelled()"
-    if: |
-      ! failure() && ! cancelled() && github.event.pull_request.user.login == 'renovate[bot]' && contains(github.event.pull_request.body, ' **Automerge**: Enabled.')
-
   status-check:
     # This job is used for main branch's branch protection rule's status check.
     # If all dependent jobs succeed or are skipped this job succeeds.
-    timeout-minutes: 30
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     needs:
+      - path-filter
       - renovate-config-validator
       - test
       - typos
       - ghalint
       - update-aqua-checksums
     permissions: {}
-    if: failure()
+    if: always()
     steps:
-      - run: exit 1
+      - uses: suzuki-shunsuke/required-status-check-action@2b5a46064846b09381852c2c4217e898f639e768 # v0.1.3
+        with:
+          needs: ${{ toJson(needs) }}
 
   renovate-config-validator:
     # Validate Renovate Configuration by renovate-config-validator.
