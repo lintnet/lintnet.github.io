@@ -101,7 +101,7 @@ cat lintnet_0.4.8_checksums.txt | sha256sum -c --ignore-missing
 5. Go
 
 ```sh
-go install github.com/lintnet/lintnet@latest
+go install github.com/lintnet/lintnet/cmd/lintnet@latest
 ```
 
 ## Shell completion
