@@ -33,11 +33,10 @@ jobs:
       contents: read
 
   test:
-    uses: ./.github/workflows/deploy.yaml
+    uses: ./.github/workflows/workflow_call_deploy.yaml
     permissions:
       contents: write
-    with:
-      is_pr: true
+      issues: write
 
   ghalint:
     # Validate GitHub Actions Workflows by ghalint.
