@@ -1,6 +1,10 @@
 ---
 name: test (workflow_call)
-on: workflow_call
+on:
+  workflow_call:
+    secrets:
+      TAKUMI_GUARD_BOT_ID:
+        required: false
 permissions: {}
 env:
   AQUA_LOG_COLOR: always
@@ -32,11 +36,19 @@ jobs:
     permissions:
       contents: read
 
-  test:
-    uses: ./.github/workflows/workflow_call_deploy.yaml
+  # Build the document of lintnet/lintnet
+  test-doc:
+    uses: suzuki-shunsuke/release-doc-action/.github/workflows/test.yaml@1cb15eb99aa8f0ae05ae28174430e49579e878fa # v0.2.0
+    with:
+      repository: lintnet/lintnet
+      # Changed files of pull requests in this repository are irrelevant to the document
+      paths: ""
+    secrets:
+      TAKUMI_GUARD_BOT_ID: ${{secrets.TAKUMI_GUARD_BOT_ID}}
     permissions:
-      contents: write
-      issues: write
+      pull-requests: read
+      contents: read
+      id-token: write
 
   ghalint:
     # Validate GitHub Actions Workflows by ghalint.
