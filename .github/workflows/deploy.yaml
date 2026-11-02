@@ -5,9 +5,20 @@ on:
   schedule:
     - cron: "*/30 * * * *"
 permissions: {}
+concurrency:
+  # Don't run multiple releases at the same time
+  group: ${{github.workflow}}
+  cancel-in-progress: false
 jobs:
+  # The document exists in lintnet/lintnet
   deploy-doc:
-    uses: ./.github/workflows/workflow_call_deploy.yaml
+    uses: suzuki-shunsuke/release-doc-action/.github/workflows/release.yaml@1cb15eb99aa8f0ae05ae28174430e49579e878fa # v0.2.0
+    with:
+      repository: lintnet/lintnet
+      issue_number: "848"
+    secrets:
+      TAKUMI_GUARD_BOT_ID: ${{secrets.TAKUMI_GUARD_BOT_ID}}
     permissions:
       contents: write
       issues: write
+      id-token: write
