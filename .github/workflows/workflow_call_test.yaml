@@ -6,35 +6,15 @@ on:
       TAKUMI_GUARD_BOT_ID:
         required: false
 permissions: {}
-env:
-  AQUA_LOG_COLOR: always
 jobs:
-  path-filter:
-    # Get changed files to filter jobs
-    timeout-minutes: 10
-    outputs:
-      renovate-config-validator: ${{steps.changes.outputs.renovate-config-validator}}
-      ghalint: ${{steps.changes.outputs.ghalint}}
-    runs-on: ubuntu-26.04
-    permissions: {}
-    steps:
-      - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
-        id: changes
-        with:
-          filters: |
-            renovate-config-validator:
-              - renovate.json
-            ghalint:
-              - .github/workflows/*.yaml
-              - aqua/imports/ghalint.yaml
-
-  renovate-config-validator:
-    # Validate Renovate Configuration by renovate-config-validator.
-    uses: suzuki-shunsuke/github-action-renovate-config-validator/.github/workflows/renovate-config-validator.yaml@1e1604219a6b38ae9a10aff42a28a3656322c31a # v2.4.1
-    needs: path-filter
-    if: needs.path-filter.outputs.renovate-config-validator == 'true'
+  # renovate-config-validator, ghalint, and typos
+  test-workflow:
+    uses: suzuki-shunsuke/test-workflow/.github/workflows/test.yaml@0b89b9b4314282810bc944364380568708208eaa # v0.0.2
+    with:
+      aqua_version: v2.66.0
     permissions:
       contents: read
+      pull-requests: read
 
   # Build the document of lintnet/lintnet
   test-doc:
@@ -49,38 +29,3 @@ jobs:
       pull-requests: read
       contents: read
       id-token: write
-
-  ghalint:
-    # Validate GitHub Actions Workflows by ghalint.
-    timeout-minutes: 15
-    needs: path-filter
-    if: needs.path-filter.outputs.ghalint == 'true'
-    runs-on: ubuntu-26.04
-    permissions: {}
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-      - uses: aquaproj/aqua-installer@611554c6f0137ba41c8dd15aca8bee82504ea461 # v4.1.1
-        with:
-          aqua_version: v2.66.0
-        env:
-          AQUA_GITHUB_TOKEN: ${{github.token}}
-      - run: ghalint run
-        env:
-          GHALINT_LOG_COLOR: always
-
-  typos:
-    timeout-minutes: 15
-    runs-on: ubuntu-26.04
-    permissions: {}
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-      - uses: aquaproj/aqua-installer@611554c6f0137ba41c8dd15aca8bee82504ea461 # v4.1.1
-        with:
-          aqua_version: v2.66.0
-        env:
-          AQUA_GITHUB_TOKEN: ${{github.token}}
-      - run: typos
